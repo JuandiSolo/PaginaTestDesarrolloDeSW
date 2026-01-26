@@ -1,30 +1,194 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Texto central en movimiento</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fantasy Finance League</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
-
+  <!-- ===== HEADER ===== -->
+  <section class="header-section">
     <header class="top-bar">
-        <div class="left">
-            <span>LOGO</span>
-        </div>
+      <div class="left"><span class="brand-mark">FFL</span> <span class="brand-name">Fantasy Finance League</span></div>
 
-        <!-- CONTENEDOR CENTRAL (70%) -->
-        <div class="center">
-            <div class="texto" id="texto">
-                Hola, soy un texto que se mueve infinitamente 🚀
-            </div>
+      <div class="center" id="contenedor">
+        <div class="texto">
+          BTC-USD | Bitcoin | 42,580.75 | +1,120.40
+          <span class="tri-up"></span>
+          • ETH-USD | Ethereum | 2,265.18 | -34.22
+          <span class="tri-down"></span>
+          • SOL-USD | Solana | 98.47 | +5.33
+          <span class="tri-up"></span>
+          • ADA-USD | Cardano | 0.52 | -0.04
+          <span class="tri-down"></span>
+          • XRP-USD | Ripple | 0.61 | +0.02
+          <span class="tri-up"></span>
         </div>
+      </div>
 
-        <div class="right">
-            <span>Iniciar sesión</span>
-            <div class="circle"></div>
-        </div>
+      <div class="right"><a class="btn-login" href="#">Iniciar sesión</a></div>
     </header>
+  </section>
 
-    <script src="script.js"></script>
+  <!-- ===== HALL OF FAME ===== -->
+  <section class="hof-section">
+    <h1>Hall of Fame de Traders</h1>
+
+    <div class="slider-container">
+      <button class="arrow left" id="prev" aria-label="Anterior">&#10094;</button>
+
+      <div class="slider-wrapper">
+        <div class="slider" id="slider">
+          <!-- Nota: reemplaza img1.jpg ... img10.jpg por tus imágenes reales -->
+          <div class="card" style="background-image: url('./imagenes/img1.jpg');">
+            <div class="card-overlay">
+              <h3>JORDENBOER</h3>
+              <p class="negative">-22.19%</p>
+              <span>RETURN (2Y)</span>
+            </div>
+          </div>
+
+          <div class="card" style="background-image: url('./imagenes/img2.jpg');">
+            <div class="card-overlay">
+              <h3>NoImportant3</h3>
+              <p class="positive">98.86%</p>
+              <span>RETURN (2Y)</span>
+            </div>
+          </div>
+
+          <div class="card" style="background-image: url('./imagenes/img3.jpg');">
+            <div class="card-overlay">
+              <h3>MihailTsankov</h3>
+              <p class="positive">90.17%</p>
+              <span>RETURN (2Y)</span>
+            </div>
+          </div>
+
+          <div class="card" style="background-image: url('./imagenes/img4.jpg');">
+            <div class="card-overlay">
+              <h3>Changwei</h3>
+              <p class="positive">62.22%</p>
+              <span>RETURN (2Y)</span>
+            </div>
+          </div>
+
+          <div class="card" style="background-image: url('./imagenes/img5.jpg');">
+            <div class="card-overlay">
+              <h3>TraderX</h3>
+              <p class="positive">75.40%</p>
+              <span>RETURN (2Y)</span>
+            </div>
+          </div>
+
+          <div class="card" style="background-image: url('./imagenes/img6.jpg');">
+            <div class="card-overlay">
+              <h3>AlphaPro</h3>
+              <p class="negative">-10.85%</p>
+              <span>RETURN (2Y)</span>
+            </div>
+          </div>
+
+          <div class="card" style="background-image: url('./imagenes/img7.jpg');">
+            <div class="card-overlay">
+              <h3>MarketWolf</h3>
+              <p class="positive">44.91%</p>
+              <span>RETURN (2Y)</span>
+            </div>
+          </div>
+
+          <div class="card" style="background-image: url('./imagenes/img8.jpg');">
+            <div class="card-overlay">
+              <h3>CryptoEdge</h3>
+              <p class="positive">110.30%</p>
+              <span>RETURN (2Y)</span>
+            </div>
+          </div>
+
+          <div class="card" style="background-image: url('./imagenes/img9.jpg');">
+            <div class="card-overlay">
+              <h3>SafeGrowth</h3>
+              <p class="positive">28.70%</p>
+              <span>RETURN (2Y)</span>
+            </div>
+          </div>
+
+          <div class="card" style="background-image: url('./imagenes/img10.jpg');">
+            <div class="card-overlay">
+              <h3>LongTerm</h3>
+              <p class="positive">51.12%</p>
+              <span>RETURN (2Y)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="arrow right" id="next" aria-label="Siguiente">&#10095;</button>
+    </div>
+  </section>
+
+  <!-- ===== SEARCH BAR ===== -->
+  <section class="search-section">
+    <div class="container">
+      <h1>Busca tu stock</h1>
+
+      <a href="#" class="search-link" onclick="return false;">
+        <div class="search-bar">
+          <input id="searchInput" type="text" placeholder="Escribe aquí..." disabled />
+          <div class="search-icon" id="searchIcon" aria-label="Buscar"></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <section class="footer-section">
+    <footer class="broker-footer">
+      <div class="footer-wrapper">
+
+        <div class="footer-left">
+          <div class="footer-logo">
+            <span class="logo-mark">▮▮</span>
+            <span class="logo-text">Fantasy Finance League</span>
+          </div>
+
+          <div class="footer-socials">
+            <a href="#" aria-label="Twitter">𝕏</a>
+            <a href="#" aria-label="Instagram">📸</a>
+            <a href="#" aria-label="YouTube">▶</a>
+            <a href="#" aria-label="TikTok">♪</a>
+            <a href="#" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+
+        <div class="footer-right">
+          <p class="risk-warning">
+            <strong>Advertencia:</strong> El trading con instrumentos financieros es una
+            actividad arriesgada que puede generar beneficios o causar pérdidas.
+            El monto de las pérdidas potenciales se limita al monto depositado.
+          </p>
+
+          <p class="legal-text">
+            Esta información no está destinada a residentes del EEE.
+          </p>
+
+          <p class="company-info">
+            Fantasy Finance League International Company LLC<br />
+            support@fantasyfinanceleague.com<br />
+            C/O Global Business Services Ltd. Kingstown (Stoney Ground) VC0100
+            St. Vincent & Grenadines
+          </p>
+
+          <p class="copyright">
+            © 2026, Fantasy Finance League
+          </p>
+        </div>
+
+      </div>
+    </footer>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>

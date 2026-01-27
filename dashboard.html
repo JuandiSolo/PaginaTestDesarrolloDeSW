@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FFL | Trader Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-badge">FFL</div>
+      <div class="brand-name">Fantasy Finance League</div>
+    </div>
+
+    <div class="ticker-strip" aria-label="Market tickers (mock)">
+      <div class="ticker-item">BTC-USD <span class="muted">| Bitcoin</span> <span class="pos">+1,120.40</span></div>
+      <div class="ticker-item">ETH-USD <span class="muted">| Ethereum</span> <span class="neg">-34.22</span></div>
+      <div class="ticker-item">SOL-USD <span class="muted">| Solana</span> <span class="neg">-2.11</span></div>
+    </div>
+
+    <div class="top-actions">
+      <button id="btnLogout" class="btn ghost">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="dashboard">
+      <!-- Left / main column -->
+      <div class="col">
+        <!-- Profile / greeting -->
+        <div class="card profile">
+          <div class="avatar" aria-label="Foto de perfil (placeholder)"></div>
+          <div class="profile-meta">
+            <div class="hello">Hola,</div>
+            <div class="username">
+              <span id="username">NombreUsuario</span>
+              <span class="tag" id="userTag">Nuevo</span>
+            </div>
+            <div class="sub muted" id="userHint">Seed money aplicado si eres nuevo.</div>
+          </div>
+        </div>
+
+        <!-- Total value -->
+        <div class="card total">
+          <div class="card-head">
+            <h2>Valor total</h2>
+            <div class="pill">
+              <span class="muted">Cambio hoy</span>
+              <span id="dailyDelta" class="pos">+$0.00</span>
+            </div>
+          </div>
+
+          <div class="total-row">
+            <div class="money" id="totalValue">$0.00</div>
+            <div class="progress">
+              <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+            </div>
+            <div class="progress-label muted" id="progressLabel">0% del objetivo</div>
+          </div>
+        </div>
+
+        <!-- Middle row: Assets + Daily P/L -->
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-head">
+              <h3>Activos actuales</h3>
+              <button class="btn tiny ghost" id="btnRefresh">Actualizar</button>
+            </div>
+
+            <div class="table">
+              <div class="trow thead">
+                <div>Activo</div>
+                <div class="right">Cantidad</div>
+                <div class="right">Precio</div>
+                <div class="right">Valor</div>
+              </div>
+              <div id="assetsRows" class="tbody">
+                <!-- rows injected by JS -->
+              </div>
+            </div>
+
+            <div class="footnote muted">
+              “Activos actuales” = tus posiciones abiertas (lo que tienes comprado).
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <h3>Ganancias / pérdidas (hoy)</h3>
+              <div class="pill">
+                <span class="muted">Estado</span>
+                <span id="dayStatus" class="pos">Positivo</span>
+              </div>
+            </div>
+
+            <div class="pl-big">
+              <div class="pl-value" id="dailyPL">$0.00</div>
+              <div class="pl-sub muted" id="dailyPLPct">0.00%</div>
+            </div>
+
+            <div class="mini-grid">
+              <div class="mini">
+                <div class="mini-label muted">Mejor activo</div>
+                <div class="mini-value" id="bestAsset">—</div>
+              </div>
+              <div class="mini">
+                <div class="mini-label muted">Peor activo</div>
+                <div class="mini-value" id="worstAsset">—</div>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="kv">
+              <div class="kv-item">
+                <div class="muted">Equity total</div>
+                <div id="equityTotal" class="kv-val">$0.00</div>
+              </div>
+              <div class="kv-item">
+                <div class="muted">Efectivo disponible</div>
+                <div id="cashAvailable" class="kv-val">$0.00</div>
+              </div>
+            </div>
+
+            <div class="footnote muted">
+              Equity = cash + valor de tus posiciones. Efectivo disponible = solo cash para comprar.
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom row: equity/cash (extra strip like sketch) -->
+        <div class="card strip">
+          <div class="strip-item">
+            <div class="muted">Equity total</div>
+            <div class="strip-val" id="equityTotal2">$0.00</div>
+          </div>
+          <div class="strip-item">
+            <div class="muted">Efectivo disponible</div>
+            <div class="strip-val" id="cashAvailable2">$0.00</div>
+          </div>
+          <div class="strip-item">
+            <div class="muted">Seed money</div>
+            <div class="strip-val" id="seedMoney">$0.00</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right column: Order ticket -->
+      <aside class="col right">
+        <div class="card ticket">
+          <div class="card-head">
+            <h3>Order ticket</h3>
+            <span class="muted tiny">Simulado</span>
+          </div>
+
+          <div class="ticket-grid">
+            <label class="field">
+              <span class="label muted">Símbolo</span>
+              <input id="sym" class="input" type="text" value="AAPL" maxlength="10" />
+            </label>
+
+            <label class="field">
+              <span class="label muted">Tipo</span>
+              <select id="orderType" class="input">
+                <option value="market">Market</option>
+                <option value="limit">Limit</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span class="label muted">Cantidad</span>
+              <input id="qty" class="input" type="number" min="1" step="1" value="1" />
+            </label>
+
+            <label class="field" id="limitWrap">
+              <span class="label muted">Precio límite</span>
+              <input id="limitPrice" class="input" type="number" min="0" step="0.01" value="100.00" />
+            </label>
+
+            <label class="field">
+              <span class="label muted">TIF</span>
+              <select id="tif" class="input">
+                <option value="day">Day</option>
+                <option value="gtc">GTC</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span class="label muted">Vista previa (precio)</span>
+              <input id="markPrice" class="input" type="text" value="$0.00" disabled />
+            </label>
+          </div>
+
+          <div class="ticket-actions">
+            <button id="btnBuy" class="btn buy">Buy</button>
+            <button id="btnSell" class="btn sell">Sell</button>
+          </div>
+
+          <div class="ticket-summary">
+            <div class="summary-row">
+              <span class="muted">Costo estimado</span>
+              <span id="estCost">$0.00</span>
+            </div>
+            <div class="summary-row">
+              <span class="muted">Cash después</span>
+              <span id="cashAfter">$0.00</span>
+            </div>
+            <div class="summary-row">
+              <span class="muted">Estado</span>
+              <span id="ticketStatus" class="muted">Listo</span>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="ticket-log" aria-live="polite">
+            <div class="muted tiny">Actividad</div>
+            <div id="log" class="log"></div>
+          </div>
+        </div>
+
+        <div class="card help join-card">
+          <div class="card-head">
+            <h4>Únete a una competencia o a una liga</h4>
+            <span class="muted tiny">Social</span>
+          </div>
+
+          <p class="muted join-text">
+            Compite con tus amigos, sube en el ranking y demuestra tu estrategia.
+            Explora ligas públicas o crea una privada.
+          </p>
+
+          <a class="btn join-btn" href="grupos.html" aria-label="Explorar ligas y competencias">
+            Explorar ligas y competencias
+          </a>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fantasy Finance League</title>
+  <link rel="stylesheet" href="grupos.css" />
+</head>
+
+<body>
+  <!-- Top bar (placeholder con tu estilo actual) -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">FFL</div>
+      <div class="brandText">Fantasy Finance League</div>
+    </div>
+
+    <div class="ticker">
+      <div class="pill">BTC-USD | Bitcoin <span class="up">+1,120.40</span></div>
+      <div class="pill">ETH-USD | Ethereum <span class="down">-34.22</span></div>
+      <div class="pill">SOL-USD | Solana <span class="down">-2.11</span></div>
+    </div>
+
+    <button class="btnTop">Iniciar sesión</button>
+  </header>
+
+  <main class="page">
+    <section class="sectionShell">
+      <div class="sectionHeader">
+        <h2>Competencias y ligas</h2>
+        <p>Explora, inscríbete y compite. Proof of concept.</p>
+      </div>
+
+      <div class="grid">
+        <!-- LEFT: Competencias/Ligas -->
+        <div class="card big">
+          <div class="cardTop">
+            <div class="tabs" role="tablist" aria-label="Competencias y ligas">
+              <button class="tab active" id="tab-competencias" role="tab" aria-selected="true">Competencias</button>
+              <button class="tab" id="tab-ligas" role="tab" aria-selected="false">Ligas</button>
+            </div>
+
+            <div class="tools">
+              <div class="searchBox">
+                <input id="leftSearch" type="text" placeholder="Buscar..." />
+                <button id="leftSearchBtn" class="iconBtn" aria-label="Buscar">🔎</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="listWrap">
+            <div id="leftList" class="list" aria-live="polite"></div>
+          </div>
+
+          <div class="cardBottomHint">
+            Tip: la lista es scrolleable. Puedes cambiar entre Competencias y Ligas.
+          </div>
+        </div>
+
+        <!-- RIGHT: Hall of Fame global -->
+        <aside class="card">
+          <div class="hofTop">
+            <h3>Hall of Fame global</h3>
+            <span class="chip">Top 5</span>
+          </div>
+
+          <div class="divider"></div>
+
+          <ol id="hofList" class="hofList"></ol>
+
+          <div class="hofFooter">
+            Basado en retorno (2Y) y consistencia. (Demo)
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <script src="grupos.js"></script>
+</body>
+</html>

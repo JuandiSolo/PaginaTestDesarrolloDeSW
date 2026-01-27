@@ -1,0 +1,146 @@
+<!-- stock.html -->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fantasy Finance League | Acción</title>
+  <link rel="stylesheet" href="accion.css" />
+</head>
+
+<body>
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">FFL</div>
+      <div class="brandText">Fantasy Finance League</div>
+    </div>
+
+    <div class="tickerStrip" aria-label="Ticker strip">
+      <div class="tickerItem up">BTC-USD <span class="muted">| Bitcoin</span> <span class="val">+1,120.40</span></div>
+      <div class="tickerItem down">ETH-USD <span class="muted">| Ethereum</span> <span class="val">-34.22</span></div>
+      <div class="tickerItem down">SOL-USD <span class="muted">| Solana</span> <span class="val">-2.11</span></div>
+    </div>
+
+    <button class="pillBtn">Iniciar sesión</button>
+  </header>
+
+  <main class="page">
+    <!-- Title row -->
+    <section class="hero">
+      <div class="heroLeft">
+        <h1 class="symbolTitle">
+          <span id="stockName">Apple Inc.</span>
+          <span class="dot">•</span>
+          <span id="stockSymbol">AAPL</span>
+        </h1>
+        <div class="subline">
+          <span class="chip">Simulado</span>
+          <span class="muted">Vista de acción</span>
+        </div>
+      </div>
+
+      <div class="heroRight">
+        <div class="priceBox">
+          <div class="priceLabel">Precio (simulado)</div>
+          <div class="priceValue" id="priceValue">$172.40</div>
+          <div class="priceDelta up" id="priceDelta">+1.12%</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main grid -->
+    <section class="grid">
+      <!-- Chart card -->
+      <article class="card chartCard">
+        <div class="cardHeader">
+          <div class="cardTitle">Candlestick Chart</div>
+          <div class="cardActions">
+            <button class="tinyBtn" id="btnRegenerate">Regenerar</button>
+            <button class="tinyBtn" id="btnZoom">Zoom (demo)</button>
+          </div>
+        </div>
+
+        <div class="chartWrap">
+          <canvas id="candleCanvas" width="1200" height="520"></canvas>
+          <div class="chartOverlay">
+            <div class="overlayRow">
+              <span class="ovLabel">Timeframe:</span>
+              <span class="ovValue">1D</span>
+              <span class="ovSpacer"></span>
+              <span class="ovLabel">Vol:</span>
+              <span class="ovValue">Sim</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="chartFooter">
+          <div class="muted small">
+            * Gráfico simulado. Luego puedes reemplazar por TradingView / Lightweight Charts.
+          </div>
+        </div>
+      </article>
+
+      <!-- Sentiment engine -->
+      <aside class="card sentimentCard">
+        <div class="cardHeader">
+          <div class="cardTitle">Motor de Sentimientos</div>
+          <div class="cardHint muted">Títulos de noticias → clasificación Bullish / Bearish</div>
+        </div>
+
+        <div class="sentimentBody">
+          <label class="label">Pega titulares (1 por línea)</label>
+          <textarea id="newsInput" class="textarea" rows="7"
+            placeholder="Ej:
+Apple beats earnings expectations
+Regulators investigate supply chain
+New product demand surges"></textarea>
+
+          <div class="row">
+            <button id="btnAnalyze" class="primaryBtn">Analizar</button>
+            <button id="btnClear" class="ghostBtn">Limpiar</button>
+          </div>
+
+          <div class="resultBox" aria-live="polite">
+            <div class="resultTop">
+              <div class="resultTitle">Estado de ánimo general</div>
+              <div class="resultBadge" id="moodBadge">—</div>
+            </div>
+
+            <div class="bars">
+              <div class="barRow">
+                <span class="barLabel">Bullish</span>
+                <div class="barTrack"><div class="barFill bullish" id="bullBar" style="width:0%"></div></div>
+                <span class="barVal" id="bullVal">0%</span>
+              </div>
+
+              <div class="barRow">
+                <span class="barLabel">Neutral</span>
+                <div class="barTrack"><div class="barFill neutral" id="neuBar" style="width:0%"></div></div>
+                <span class="barVal" id="neuVal">0%</span>
+              </div>
+
+              <div class="barRow">
+                <span class="barLabel">Bearish</span>
+                <div class="barTrack"><div class="barFill bearish" id="bearBar" style="width:0%"></div></div>
+                <span class="barVal" id="bearVal">0%</span>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="listTitle">Clasificación por titular</div>
+            <div id="classifiedList" class="classifiedList"></div>
+          </div>
+
+          <div class="note muted small">
+            Implementación actual: heurística local (demo). Con OpenAI puedes enviar los titulares y pedir JSON.
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="accion.js"></script>
+</body>
+</html>

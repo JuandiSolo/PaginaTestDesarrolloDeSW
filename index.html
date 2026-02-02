@@ -1,194 +1,272 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Fantasy Finance League</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>FFL · Liga</title>
+  <link rel="stylesheet" href="liga.css" />
 </head>
 
 <body>
-  <!-- ===== HEADER ===== -->
-  <section class="header-section">
-    <header class="top-bar">
-      <div class="left"><span class="brand-mark">FFL</span> <span class="brand-name">Fantasy Finance League</span></div>
-
-      <div class="center" id="contenedor">
-        <div class="texto">
-          BTC-USD | Bitcoin | 42,580.75 | +1,120.40
-          <span class="tri-up"></span>
-          • ETH-USD | Ethereum | 2,265.18 | -34.22
-          <span class="tri-down"></span>
-          • SOL-USD | Solana | 98.47 | +5.33
-          <span class="tri-up"></span>
-          • ADA-USD | Cardano | 0.52 | -0.04
-          <span class="tri-down"></span>
-          • XRP-USD | Ripple | 0.61 | +0.02
-          <span class="tri-up"></span>
-        </div>
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">FFL</div>
+      <div class="brandText">
+        <div class="brandTitle">Fantasy Finance League</div>
+        <div class="brandSub">Ligas · Mockup</div>
       </div>
-
-      <div class="right"><a class="btn-login" href="dashboard.html">Iniciar sesión</a></div>
-    </header>
-  </section>
-
-  <!-- ===== HALL OF FAME ===== -->
-  <section class="hof-section">
-    <h1>Hall of Fame de Traders</h1>
-
-    <div class="slider-container">
-      <button class="arrow left" id="prev" aria-label="Anterior">&#10094;</button>
-
-      <div class="slider-wrapper">
-        <div class="slider" id="slider">
-          <!-- Nota: reemplaza img1.jpg ... img10.jpg por tus imágenes reales -->
-          <div class="card" style="background-image: url('./imagenes/img1.jpg');">
-            <div class="card-overlay">
-              <h3>JORDENBOER</h3>
-              <p class="negative">-22.19%</p>
-              <span>RETURN (2Y)</span>
-            </div>
-          </div>
-
-          <div class="card" style="background-image: url('./imagenes/img2.jpg');">
-            <div class="card-overlay">
-              <h3>NoImportant3</h3>
-              <p class="positive">98.86%</p>
-              <span>RETURN (2Y)</span>
-            </div>
-          </div>
-
-          <div class="card" style="background-image: url('./imagenes/img3.jpg');">
-            <div class="card-overlay">
-              <h3>MihailTsankov</h3>
-              <p class="positive">90.17%</p>
-              <span>RETURN (2Y)</span>
-            </div>
-          </div>
-
-          <div class="card" style="background-image: url('./imagenes/img4.jpg');">
-            <div class="card-overlay">
-              <h3>Changwei</h3>
-              <p class="positive">62.22%</p>
-              <span>RETURN (2Y)</span>
-            </div>
-          </div>
-
-          <div class="card" style="background-image: url('./imagenes/img5.jpg');">
-            <div class="card-overlay">
-              <h3>TraderX</h3>
-              <p class="positive">75.40%</p>
-              <span>RETURN (2Y)</span>
-            </div>
-          </div>
-
-          <div class="card" style="background-image: url('./imagenes/img6.jpg');">
-            <div class="card-overlay">
-              <h3>AlphaPro</h3>
-              <p class="negative">-10.85%</p>
-              <span>RETURN (2Y)</span>
-            </div>
-          </div>
-
-          <div class="card" style="background-image: url('./imagenes/img7.jpg');">
-            <div class="card-overlay">
-              <h3>MarketWolf</h3>
-              <p class="positive">44.91%</p>
-              <span>RETURN (2Y)</span>
-            </div>
-          </div>
-
-          <div class="card" style="background-image: url('./imagenes/img8.jpg');">
-            <div class="card-overlay">
-              <h3>CryptoEdge</h3>
-              <p class="positive">110.30%</p>
-              <span>RETURN (2Y)</span>
-            </div>
-          </div>
-
-          <div class="card" style="background-image: url('./imagenes/img9.jpg');">
-            <div class="card-overlay">
-              <h3>SafeGrowth</h3>
-              <p class="positive">28.70%</p>
-              <span>RETURN (2Y)</span>
-            </div>
-          </div>
-
-          <div class="card" style="background-image: url('./imagenes/img10.jpg');">
-            <div class="card-overlay">
-              <h3>LongTerm</h3>
-              <p class="positive">51.12%</p>
-              <span>RETURN (2Y)</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <button class="arrow right" id="next" aria-label="Siguiente">&#10095;</button>
     </div>
-  </section>
 
-  <!-- ===== SEARCH BAR ===== -->
-  <section class="search-section">
-    <div class="container">
-      <h1>Busca tu stock</h1>
-
-      <a href="accion.html" class="search-link" onclick="return true;">
-        <div class="search-bar">
-          <input id="searchInput" type="text" placeholder="Escribe aquí..." disabled />
-          <div class="search-icon" id="searchIcon" aria-label="Buscar"></div>
-        </div>
-      </a>
+    <div class="ticker">
+      <div class="pill">BTC-USD <span class="up">+1,120.40</span></div>
+      <div class="pill">ETH-USD <span class="down">-34.22</span></div>
+      <div class="pill">SOL-USD <span class="down">-2.11</span></div>
     </div>
-  </section>
 
-  <!-- ===== FOOTER ===== -->
-  <section class="footer-section">
-    <footer class="broker-footer">
-      <div class="footer-wrapper">
+    <button class="btn ghost">Volver</button>
+  </header>
 
-        <div class="footer-left">
-          <div class="footer-logo">
-            <span class="logo-mark">▮▮</span>
-            <span class="logo-text">Fantasy Finance League</span>
-          </div>
-
-          <div class="footer-socials">
-            <a href="#" aria-label="Twitter">𝕏</a>
-            <a href="#" aria-label="Instagram">📸</a>
-            <a href="#" aria-label="YouTube">▶</a>
-            <a href="#" aria-label="TikTok">♪</a>
-            <a href="#" aria-label="LinkedIn">in</a>
+  <!-- Page -->
+  <main class="page">
+    <section class="shell">
+      <!-- LEFT: League card -->
+      <aside class="card leagueCard">
+        <div class="leagueHead">
+          <div class="leagueBadge" aria-hidden="true">🏆</div>
+          <div>
+            <h1 class="leagueName">ColombiaXx</h1>
+            <div class="leagueMeta">
+              <span class="chip">Pública</span>
+              <span class="chip">30/30</span>
+              <span class="chip subtle">Tag #V8C9YU</span>
+            </div>
           </div>
         </div>
 
-        <div class="footer-right">
-          <p class="risk-warning">
-            <strong>Advertencia:</strong> El trading con instrumentos financieros es una
-            actividad arriesgada que puede generar beneficios o causar pérdidas.
-            El monto de las pérdidas potenciales se limita al monto depositado.
-          </p>
+        <div class="leagueStats">
+          <div class="stat">
+            <div class="statLabel">Equity total (liga)</div>
+            <div class="statValue">$1,847,476</div>
+          </div>
+          <div class="stat">
+            <div class="statLabel">Requisito</div>
+            <div class="statValue">55,000 pts</div>
+          </div>
+          <div class="stat">
+            <div class="statLabel">Ranking actual</div>
+            <div class="statValue">#144</div>
+          </div>
+        </div>
 
-          <p class="legal-text">
-            Esta información no está destinada a residentes del EEE.
-          </p>
-
-          <p class="company-info">
-            Fantasy Finance League International Company LLC<br />
-            support@fantasyfinanceleague.com<br />
-            C/O Global Business Services Ltd. Kingstown (Stoney Ground) VC0100
-            St. Vincent & Grenadines
-          </p>
-
-          <p class="copyright">
-            © 2026, Fantasy Finance League
+        <div class="leagueDesc">
+          <div class="descTitle">Descripción</div>
+          <p>
+            A POR EL TOP!!! · ser leal al club · ser activos · estrategia: value + paciencia.
           </p>
         </div>
 
-      </div>
-    </footer>
-  </section>
+        <div class="leagueActions">
+          <button class="btn primary">Invitar</button>
+          <button class="btn danger">Salir</button>
+        </div>
 
-  <script src="script.js"></script>
+        <div class="hint">
+          Tip: esta vista es para el creador/mod. “Miembros” muestra la lista completa.
+        </div>
+      </aside>
+
+      <!-- RIGHT: Tabs + content -->
+      <section class="card panel">
+        <div class="panelTop">
+          <div class="panelTitle">
+            <div class="titleRow">
+              <h2>CLUB</h2>
+              <span class="muted">Miembros <b>30/30</b></span>
+            </div>
+            <div class="search">
+              <input type="search" placeholder="Buscar miembro…" />
+              <button class="iconBtn" aria-label="Buscar">⌕</button>
+            </div>
+          </div>
+
+          <nav class="tabs" aria-label="Secciones de liga">
+            <a class="tab active" href="#">Miembros</a>
+            <a class="tab" href="#">Chat</a>
+            <a class="tab" href="#">Clasificación</a>
+            <a class="tab" href="#">Eventos</a>
+          </nav>
+        </div>
+
+        <!-- Members table/list -->
+        <div class="membersHeader">
+          <div class="col rank">#</div>
+          <div class="col name">Nombre</div>
+          <div class="col status">Estado</div>
+          <div class="col badge">Estilo</div>
+          <div class="col score">Return</div>
+          <div class="col action">Acción</div>
+        </div>
+
+        <div class="membersList">
+          <!-- Row -->
+          <article class="memberRow">
+            <div class="rank">1</div>
+            <div class="nameCell">
+              <div class="avatar" data-tone="1">M</div>
+              <div class="nameMeta">
+                <div class="nameLine">
+                  <span class="memberName">Matazano</span>
+                  <span class="role">Miembro</span>
+                </div>
+                <div class="sub">Perfil: macro · ETFs</div>
+              </div>
+            </div>
+            <div class="status">Último acceso: <b>hace 9 h</b></div>
+            <div class="badgeCell">
+              <span class="badge gold">Consistente</span>
+            </div>
+            <div class="scoreCell">
+              <span class="score up">+92.68%</span>
+              <span class="tiny muted">(2Y)</span>
+            </div>
+            <div class="action">
+              <button class="btn small">Ver</button>
+            </div>
+          </article>
+
+          <article class="memberRow">
+            <div class="rank">2</div>
+            <div class="nameCell">
+              <div class="avatar" data-tone="2">A</div>
+              <div class="nameMeta">
+                <div class="nameLine">
+                  <span class="memberName">Aquashiro</span>
+                  <span class="role">Miembro</span>
+                </div>
+                <div class="sub">Perfil: momentum</div>
+              </div>
+            </div>
+            <div class="status">Último acceso: <b>hace 6 h</b></div>
+            <div class="badgeCell">
+              <span class="badge cyan">Momentum</span>
+            </div>
+            <div class="scoreCell">
+              <span class="score up">+85.20%</span>
+              <span class="tiny muted">(2Y)</span>
+            </div>
+            <div class="action">
+              <button class="btn small">Ver</button>
+            </div>
+          </article>
+
+          <article class="memberRow">
+            <div class="rank">3</div>
+            <div class="nameCell">
+              <div class="avatar" data-tone="3">I</div>
+              <div class="nameMeta">
+                <div class="nameLine">
+                  <span class="memberName">ISRAFEL</span>
+                  <span class="role">Veterano</span>
+                </div>
+                <div class="sub">Perfil: value + paciencia</div>
+              </div>
+            </div>
+            <div class="status">Último acceso: <b>hace 8 h</b></div>
+            <div class="badgeCell">
+              <span class="badge green">Value</span>
+            </div>
+            <div class="scoreCell">
+              <span class="score up">+81.60%</span>
+              <span class="tiny muted">(2Y)</span>
+            </div>
+            <div class="action">
+              <button class="btn small">Ver</button>
+            </div>
+          </article>
+
+          <article class="memberRow">
+            <div class="rank">4</div>
+            <div class="nameCell">
+              <div class="avatar" data-tone="4">T</div>
+              <div class="nameMeta">
+                <div class="nameLine">
+                  <span class="memberName">Teex</span>
+                  <span class="role">Miembro</span>
+                </div>
+                <div class="sub">Perfil: tech swing</div>
+              </div>
+            </div>
+            <div class="status">Último acceso: <b>&lt;1 h</b></div>
+            <div class="badgeCell">
+              <span class="badge purple">Alta varianza</span>
+            </div>
+            <div class="scoreCell">
+              <span class="score up">+81.15%</span>
+              <span class="tiny muted">(2Y)</span>
+            </div>
+            <div class="action">
+              <button class="btn small">Ver</button>
+            </div>
+          </article>
+
+          <article class="memberRow">
+            <div class="rank">5</div>
+            <div class="nameCell">
+              <div class="avatar" data-tone="5">A</div>
+              <div class="nameMeta">
+                <div class="nameLine">
+                  <span class="memberName">Atomer</span>
+                  <span class="role mod">Vicepresidente</span>
+                </div>
+                <div class="sub">Perfil: riesgo controlado</div>
+              </div>
+            </div>
+            <div class="status">Último acceso: <b>hace 7 h</b></div>
+            <div class="badgeCell">
+              <span class="badge silver">Bajo drawdown</span>
+            </div>
+            <div class="scoreCell">
+              <span class="score up">+71.85%</span>
+              <span class="tiny muted">(2Y)</span>
+            </div>
+            <div class="action">
+              <button class="btn small">Ver</button>
+            </div>
+          </article>
+
+          <article class="memberRow">
+            <div class="rank">6</div>
+            <div class="nameCell">
+              <div class="avatar" data-tone="6">R</div>
+              <div class="nameMeta">
+                <div class="nameLine">
+                  <span class="memberName">RAGNAR</span>
+                  <span class="role">Miembro</span>
+                </div>
+                <div class="sub">Perfil: inactivo</div>
+              </div>
+            </div>
+            <div class="status warn">Último acceso: <b>+1 mes</b></div>
+            <div class="badgeCell">
+              <span class="badge dark">Inactivo</span>
+            </div>
+            <div class="scoreCell">
+              <span class="score down">-12.40%</span>
+              <span class="tiny muted">(2Y)</span>
+            </div>
+            <div class="action">
+              <button class="btn small ghost">Ver</button>
+            </div>
+          </article>
+        </div>
+
+        <footer class="panelFoot">
+          <div class="muted smallText">Basado en retorno (2Y) y consistencia · Demo UI</div>
+          <button class="btn ghost small">Ver todos</button>
+        </footer>
+      </section>
+    </section>
+  </main>
 </body>
 </html>

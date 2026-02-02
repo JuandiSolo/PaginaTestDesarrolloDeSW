@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FFL · Crear Liga</title>
+  <link rel="stylesheet" href="crear-club-brokerage.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="left">
+      <button class="iconBtn" aria-label="Volver">←</button>
+      <div class="brand">
+        <div class="logo">FFL</div>
+        <div class="txt">
+          <div class="title">Fantasy Finance League</div>
+          <div class="sub">Ligas · Crear liga</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="right">
+      <button class="chip">Simulado</button>
+      <button class="iconBtn" aria-label="Ayuda">?</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="board">
+      <div class="head">
+        <h1 class="headline">Crear nueva liga</h1>
+        <div class="headSub">Configura reglas para competir con disciplina (risk-managed).</div>
+      </div>
+
+      <!-- League name -->
+      <div class="row">
+        <div class="labelTop">Nombre</div>
+        <div class="inputShell">
+          <input class="textInput" type="text" value="Liberators" aria-label="Nombre de la liga" />
+        </div>
+      </div>
+
+      <!-- Identity + Description -->
+      <div class="grid2">
+        <div class="fieldCard">
+          <div class="labelTop">Identidad</div>
+
+          <div class="identity">
+            <div class="badgeIcon" aria-hidden="true">L</div>
+
+            <div class="identityMeta">
+              <div class="miniLabel">Avatar / Logo</div>
+              <div class="muted">Se mostrará en rankings y perfiles.</div>
+            </div>
+
+            <button class="btn soft" type="button">Cambiar</button>
+          </div>
+
+          <div class="mini">
+            <div class="miniLabel">Visibilidad</div>
+            <div class="pillRow">
+              <button class="pill active">Pública</button>
+              <button class="pill">Privada</button>
+              <button class="pill">Por invitación</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="fieldCard">
+          <div class="labelTop">Descripción</div>
+          <div class="textareaShell">
+            <textarea class="textArea" rows="5" aria-label="Descripción">
+Liga enfocada en consistencia, control de riesgo y performance ajustada por drawdown.</textarea>
+          </div>
+          <div class="note">Tip: deja claras las reglas (horizonte, estilo, ETFs/acciones, etc.).</div>
+        </div>
+      </div>
+
+      <!-- Rules -->
+      <div class="grid2">
+        <!-- Members cap -->
+        <div class="fieldCard">
+          <div class="labelTop">Límite de miembros</div>
+
+          <div class="selectorRow">
+            <div class="selectorValue">
+              <span class="big">30</span>
+              <span class="muted">máx.</span>
+            </div>
+
+            <div class="stepper">
+              <button class="stepBtn" aria-label="Disminuir">−</button>
+              <button class="stepBtn" aria-label="Aumentar">+</button>
+            </div>
+          </div>
+
+          <div class="hint">Recomendado: 20–50 para rankings claros.</div>
+        </div>
+
+        <!-- Risk per trade -->
+        <div class="fieldCard">
+          <div class="labelTop">Riesgo máximo por operación</div>
+
+          <div class="selectorRow">
+            <div class="selectorValue">
+              <span class="big">2%</span>
+              <span class="muted">del equity</span>
+            </div>
+
+            <div class="stepper">
+              <button class="stepBtn" aria-label="Disminuir">−</button>
+              <button class="stepBtn" aria-label="Aumentar">+</button>
+            </div>
+          </div>
+
+          <div class="hint">Evita “all-in”. Ideal: 1–3% por trade.</div>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <!-- Drawdown -->
+        <div class="fieldCard">
+          <div class="labelTop">Límite de drawdown</div>
+
+          <div class="selectorRow">
+            <div class="selectorValue">
+              <span class="big">15%</span>
+              <span class="muted">máx. permitido</span>
+            </div>
+
+            <div class="stepper">
+              <button class="stepBtn" aria-label="Disminuir">−</button>
+              <button class="stepBtn" aria-label="Aumentar">+</button>
+            </div>
+          </div>
+
+          <div class="hint">Si se supera, se congela trading (mockup).</div>
+        </div>
+
+        <!-- Leverage -->
+        <div class="fieldCard">
+          <div class="labelTop">Apalancamiento</div>
+
+          <div class="selectorRow">
+            <div class="selectorValue">
+              <span class="big">1.0x</span>
+              <span class="muted">máx.</span>
+            </div>
+
+            <div class="stepper">
+              <button class="stepBtn" aria-label="Disminuir">−</button>
+              <button class="stepBtn" aria-label="Aumentar">+</button>
+            </div>
+          </div>
+
+          <div class="hint">Para ligas serias: 1.0x (sin apalancamiento).</div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="footer">
+        <div class="legal">
+          Al crear la liga aceptas que es un entorno simulado y que las reglas son para fines educativos.
+        </div>
+        <button class="cta" type="button">Crear liga</button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

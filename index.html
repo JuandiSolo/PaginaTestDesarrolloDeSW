@@ -1,171 +1,344 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FFL · Crear Liga</title>
-  <link rel="stylesheet" href="crear-club-brokerage.css" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>FFL · Historial de Transacciones</title>
+  <link rel="stylesheet" href="liga-historial.css"/>
 </head>
-
 <body>
-  <header class="topbar">
-    <div class="left">
-      <button class="iconBtn" aria-label="Volver">←</button>
-      <div class="brand">
-        <div class="logo">FFL</div>
-        <div class="txt">
-          <div class="title">Fantasy Finance League</div>
-          <div class="sub">Ligas · Crear liga</div>
-        </div>
+
+<header class="topbar">
+  <div class="left">
+    <button class="iconBtn" aria-label="Volver">←</button>
+    <div class="brand">
+      <div class="logo">FFL</div>
+      <div class="txt">
+        <div class="title">Fantasy Finance League</div>
+        <div class="sub">Liga · Historial y análisis</div>
       </div>
     </div>
+  </div>
+  <div class="right">
+    <div class="chip">Periodo: 30D</div>
+    <button class="iconBtn" aria-label="Exportar">⭳</button>
+  </div>
+</header>
 
-    <div class="right">
-      <button class="chip">Simulado</button>
-      <button class="iconBtn" aria-label="Ayuda">?</button>
+<main class="wrap">
+  <section class="pageHead card">
+    <div class="headLeft">
+      <h1 class="h1">Historial de transacciones</h1>
+      <div class="muted">Analiza operaciones por liga y por usuario (educativo / simulado).</div>
     </div>
-  </header>
 
-  <main class="wrap">
-    <section class="board">
-      <div class="head">
-        <h1 class="headline">Crear nueva liga</h1>
-        <div class="headSub">Configura reglas para competir con disciplina (risk-managed).</div>
+    <div class="headRight">
+      <div class="kpi">
+        <div class="kpiLabel">Trades (liga)</div>
+        <div class="kpiValue">1,284</div>
       </div>
-
-      <!-- League name -->
-      <div class="row">
-        <div class="labelTop">Nombre</div>
-        <div class="inputShell">
-          <input class="textInput" type="text" value="Liberators" aria-label="Nombre de la liga" />
-        </div>
+      <div class="kpi">
+        <div class="kpiLabel">Usuarios</div>
+        <div class="kpiValue">30</div>
       </div>
+      <div class="kpi">
+        <div class="kpiLabel">Prom. tamaño trade</div>
+        <div class="kpiValue">$420</div>
+      </div>
+    </div>
+  </section>
 
-      <!-- Identity + Description -->
-      <div class="grid2">
-        <div class="fieldCard">
-          <div class="labelTop">Identidad</div>
-
-          <div class="identity">
-            <div class="badgeIcon" aria-hidden="true">L</div>
-
-            <div class="identityMeta">
-              <div class="miniLabel">Avatar / Logo</div>
-              <div class="muted">Se mostrará en rankings y perfiles.</div>
-            </div>
-
-            <button class="btn soft" type="button">Cambiar</button>
-          </div>
-
-          <div class="mini">
-            <div class="miniLabel">Visibilidad</div>
-            <div class="pillRow">
-              <button class="pill active">Pública</button>
-              <button class="pill">Privada</button>
-              <button class="pill">Por invitación</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="fieldCard">
-          <div class="labelTop">Descripción</div>
-          <div class="textareaShell">
-            <textarea class="textArea" rows="5" aria-label="Descripción">
-Liga enfocada en consistencia, control de riesgo y performance ajustada por drawdown.</textarea>
-          </div>
-          <div class="note">Tip: deja claras las reglas (horizonte, estilo, ETFs/acciones, etc.).</div>
+  <section class="grid">
+    <!-- LEFT: League summary + charts -->
+    <section class="card summary">
+      <div class="sectionTop">
+        <h2 class="h2">Resumen de liga</h2>
+        <div class="pillRow">
+          <button class="pill active">All trades</button>
+          <button class="pill">Buys</button>
+          <button class="pill">Sells</button>
         </div>
       </div>
 
-      <!-- Rules -->
-      <div class="grid2">
-        <!-- Members cap -->
-        <div class="fieldCard">
-          <div class="labelTop">Límite de miembros</div>
-
-          <div class="selectorRow">
-            <div class="selectorValue">
-              <span class="big">30</span>
-              <span class="muted">máx.</span>
-            </div>
-
-            <div class="stepper">
-              <button class="stepBtn" aria-label="Disminuir">−</button>
-              <button class="stepBtn" aria-label="Aumentar">+</button>
+      <div class="charts">
+        <article class="chartCard">
+          <div class="chartTitle">Trades por día</div>
+          <div class="chartMeta muted">Promedio: 42 / día · Rango: 12–91</div>
+          <div class="chartBox" aria-label="Gráfica trades por día (placeholder)">
+            <div class="bars">
+              <span style="height:35%"></span><span style="height:55%"></span><span style="height:28%"></span>
+              <span style="height:62%"></span><span style="height:45%"></span><span style="height:78%"></span>
+              <span style="height:52%"></span><span style="height:90%"></span><span style="height:41%"></span>
+              <span style="height:65%"></span><span style="height:33%"></span><span style="height:58%"></span>
             </div>
           </div>
+        </article>
 
-          <div class="hint">Recomendado: 20–50 para rankings claros.</div>
-        </div>
-
-        <!-- Risk per trade -->
-        <div class="fieldCard">
-          <div class="labelTop">Riesgo máximo por operación</div>
-
-          <div class="selectorRow">
-            <div class="selectorValue">
-              <span class="big">2%</span>
-              <span class="muted">del equity</span>
-            </div>
-
-            <div class="stepper">
-              <button class="stepBtn" aria-label="Disminuir">−</button>
-              <button class="stepBtn" aria-label="Aumentar">+</button>
+        <article class="chartCard">
+          <div class="chartTitle">Distribución por activo</div>
+          <div class="chartMeta muted">Top: AAPL 18% · NVDA 14% · TSLA 9%</div>
+          <div class="chartBox" aria-label="Distribución por activo (placeholder)">
+            <div class="donut" role="img" aria-label="Donut placeholder"></div>
+            <div class="legend">
+              <div class="leg"><span class="dot a"></span>AAPL <b>18%</b></div>
+              <div class="leg"><span class="dot b"></span>NVDA <b>14%</b></div>
+              <div class="leg"><span class="dot c"></span>TSLA <b>9%</b></div>
+              <div class="leg"><span class="dot d"></span>Otros <b>59%</b></div>
             </div>
           </div>
+        </article>
 
-          <div class="hint">Evita “all-in”. Ideal: 1–3% por trade.</div>
-        </div>
+        <article class="chartCard wide">
+          <div class="chartTitle">Tamaño de operación (USD)</div>
+          <div class="chartMeta muted">Prom.: $420 · Mediana: $280 · Rango: $10–$5,000</div>
+          <div class="chartBox" aria-label="Tamaño de operación (placeholder)">
+            <div class="spark">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+        </article>
       </div>
 
-      <div class="grid2">
-        <!-- Drawdown -->
-        <div class="fieldCard">
-          <div class="labelTop">Límite de drawdown</div>
+      <div class="tableBlock">
+        <div class="tableTop">
+          <h3 class="h3">Últimas transacciones (liga)</h3>
+          <div class="muted small">Click en un usuario para filtrar su historial.</div>
+        </div>
 
-          <div class="selectorRow">
-            <div class="selectorValue">
-              <span class="big">15%</span>
-              <span class="muted">máx. permitido</span>
-            </div>
-
-            <div class="stepper">
-              <button class="stepBtn" aria-label="Disminuir">−</button>
-              <button class="stepBtn" aria-label="Aumentar">+</button>
-            </div>
+        <div class="table">
+          <div class="thead">
+            <div>Hora</div><div>Usuario</div><div>Activo</div><div>Tipo</div><div>Cant.</div><div>Precio</div><div>Notional</div>
           </div>
 
-          <div class="hint">Si se supera, se congela trading (mockup).</div>
-        </div>
-
-        <!-- Leverage -->
-        <div class="fieldCard">
-          <div class="labelTop">Apalancamiento</div>
-
-          <div class="selectorRow">
-            <div class="selectorValue">
-              <span class="big">1.0x</span>
-              <span class="muted">máx.</span>
-            </div>
-
-            <div class="stepper">
-              <button class="stepBtn" aria-label="Disminuir">−</button>
-              <button class="stepBtn" aria-label="Aumentar">+</button>
-            </div>
+          <!-- rows -->
+          <div class="trow">
+            <div class="muted">14:02</div>
+            <div><a class="userLink" href="#u-nol">NoImportant3</a></div>
+            <div>AAPL</div>
+            <div><span class="tag buy">BUY</span></div>
+            <div>3</div><div>$172.40</div><div>$517.20</div>
           </div>
 
-          <div class="hint">Para ligas serias: 1.0x (sin apalancamiento).</div>
-        </div>
-      </div>
+          <div class="trow">
+            <div class="muted">13:51</div>
+            <div><a class="userLink" href="#u-mih">MihailTsankov</a></div>
+            <div>NVDA</div>
+            <div><span class="tag sell">SELL</span></div>
+            <div>1</div><div>$860.30</div><div>$860.30</div>
+          </div>
 
-      <!-- CTA -->
-      <div class="footer">
-        <div class="legal">
-          Al crear la liga aceptas que es un entorno simulado y que las reglas son para fines educativos.
+          <div class="trow">
+            <div class="muted">13:44</div>
+            <div><a class="userLink" href="#u-jbo">JordanBoer</a></div>
+            <div>TSLA</div>
+            <div><span class="tag buy">BUY</span></div>
+            <div>2</div><div>$233.10</div><div>$466.20</div>
+          </div>
         </div>
-        <button class="cta" type="button">Crear liga</button>
       </div>
     </section>
-  </main>
+
+    <!-- RIGHT: User list + user detail panels -->
+    <aside class="card side">
+      <div class="sideTop">
+        <h2 class="h2">Usuarios</h2>
+        <div class="search">
+          <input type="search" placeholder="Buscar usuario…" aria-label="Buscar usuario"/>
+          <button class="iconBtn sm" aria-label="Buscar">⌕</button>
+        </div>
+      </div>
+
+      <div class="userList">
+        <a class="userItem" href="#u-nol">
+          <div class="avatar" data-tone="1">N</div>
+          <div class="uMeta">
+            <div class="uName">NoImportant3</div>
+            <div class="uSub muted">Trades: 112 · Win: 54%</div>
+          </div>
+          <div class="uPerf up">+98.86%</div>
+        </a>
+
+        <a class="userItem" href="#u-mih">
+          <div class="avatar" data-tone="2">M</div>
+          <div class="uMeta">
+            <div class="uName">MihailTsankov</div>
+            <div class="uSub muted">Trades: 96 · Win: 51%</div>
+          </div>
+          <div class="uPerf up">+90.17%</div>
+        </a>
+
+        <a class="userItem" href="#u-cha">
+          <div class="avatar" data-tone="3">C</div>
+          <div class="uMeta">
+            <div class="uName">Changwei</div>
+            <div class="uSub muted">Trades: 73 · Win: 49%</div>
+          </div>
+          <div class="uPerf up">+62.22%</div>
+        </a>
+
+        <a class="userItem" href="#u-jbo">
+          <div class="avatar" data-tone="6">J</div>
+          <div class="uMeta">
+            <div class="uName">JordanBoer</div>
+            <div class="uSub muted">Trades: 58 · Win: 44%</div>
+          </div>
+          <div class="uPerf down">-22.19%</div>
+        </a>
+
+        <a class="userItem ghost" href="#all">
+          <div class="avatar" data-tone="5">↺</div>
+          <div class="uMeta">
+            <div class="uName">Ver liga completa</div>
+            <div class="uSub muted">Quitar filtro por usuario</div>
+          </div>
+          <div class="uPerf muted">All</div>
+        </a>
+      </div>
+
+      <!-- USER DETAIL PANELS (CSS :target) -->
+      <div class="detailShell">
+
+        <section id="all" class="detailCard">
+          <div class="detailHead">
+            <div>
+              <div class="detailTitle">Selecciona un usuario</div>
+              <div class="muted small">Haz click en un usuario para ver solo sus transacciones.</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="u-nol" class="detailCard">
+          <div class="detailHead">
+            <div class="who">
+              <div class="avatar lg" data-tone="1">N</div>
+              <div>
+                <div class="detailTitle">NoImportant3</div>
+                <div class="muted small">Trades: 112 · Prom. tamaño: $380 · Rango: $25–$3,200</div>
+              </div>
+            </div>
+            <a class="closeLink" href="#all">Quitar filtro</a>
+          </div>
+
+          <div class="miniStats">
+            <div class="miniKpi"><span class="muted">Buys</span><b>61</b></div>
+            <div class="miniKpi"><span class="muted">Sells</span><b>51</b></div>
+            <div class="miniKpi"><span class="muted">Top activo</span><b>AAPL</b></div>
+          </div>
+
+          <div class="miniTable">
+            <div class="thead2">
+              <div>Hora</div><div>Activo</div><div>Tipo</div><div>Cant.</div><div>Precio</div><div>Notional</div>
+            </div>
+            <div class="trow2">
+              <div class="muted">14:02</div><div>AAPL</div><div><span class="tag buy">BUY</span></div>
+              <div>3</div><div>$172.40</div><div>$517.20</div>
+            </div>
+            <div class="trow2">
+              <div class="muted">13:10</div><div>NVDA</div><div><span class="tag sell">SELL</span></div>
+              <div>1</div><div>$860.30</div><div>$860.30</div>
+            </div>
+            <div class="trow2">
+              <div class="muted">12:41</div><div>TSLA</div><div><span class="tag buy">BUY</span></div>
+              <div>1</div><div>$233.10</div><div>$233.10</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="u-mih" class="detailCard">
+          <div class="detailHead">
+            <div class="who">
+              <div class="avatar lg" data-tone="2">M</div>
+              <div>
+                <div class="detailTitle">MihailTsankov</div>
+                <div class="muted small">Trades: 96 · Prom. tamaño: $510 · Rango: $40–$4,400</div>
+              </div>
+            </div>
+            <a class="closeLink" href="#all">Quitar filtro</a>
+          </div>
+
+          <div class="miniStats">
+            <div class="miniKpi"><span class="muted">Buys</span><b>48</b></div>
+            <div class="miniKpi"><span class="muted">Sells</span><b>48</b></div>
+            <div class="miniKpi"><span class="muted">Top activo</span><b>NVDA</b></div>
+          </div>
+
+          <div class="miniTable">
+            <div class="thead2">
+              <div>Hora</div><div>Activo</div><div>Tipo</div><div>Cant.</div><div>Precio</div><div>Notional</div>
+            </div>
+            <div class="trow2">
+              <div class="muted">13:51</div><div>NVDA</div><div><span class="tag sell">SELL</span></div>
+              <div>1</div><div>$860.30</div><div>$860.30</div>
+            </div>
+            <div class="trow2">
+              <div class="muted">12:33</div><div>AAPL</div><div><span class="tag buy">BUY</span></div>
+              <div>5</div><div>$172.40</div><div>$862.00</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="u-cha" class="detailCard">
+          <div class="detailHead">
+            <div class="who">
+              <div class="avatar lg" data-tone="3">C</div>
+              <div>
+                <div class="detailTitle">Changwei</div>
+                <div class="muted small">Trades: 73 · Prom. tamaño: $260 · Rango: $15–$1,900</div>
+              </div>
+            </div>
+            <a class="closeLink" href="#all">Quitar filtro</a>
+          </div>
+
+          <div class="miniStats">
+            <div class="miniKpi"><span class="muted">Buys</span><b>39</b></div>
+            <div class="miniKpi"><span class="muted">Sells</span><b>34</b></div>
+            <div class="miniKpi"><span class="muted">Top activo</span><b>SPY</b></div>
+          </div>
+
+          <div class="miniTable">
+            <div class="thead2">
+              <div>Hora</div><div>Activo</div><div>Tipo</div><div>Cant.</div><div>Precio</div><div>Notional</div>
+            </div>
+            <div class="trow2">
+              <div class="muted">11:22</div><div>SPY</div><div><span class="tag buy">BUY</span></div>
+              <div>2</div><div>$480.10</div><div>$960.20</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="u-jbo" class="detailCard">
+          <div class="detailHead">
+            <div class="who">
+              <div class="avatar lg" data-tone="6">J</div>
+              <div>
+                <div class="detailTitle">JordanBoer</div>
+                <div class="muted small">Trades: 58 · Prom. tamaño: $610 · Rango: $30–$5,000</div>
+              </div>
+            </div>
+            <a class="closeLink" href="#all">Quitar filtro</a>
+          </div>
+
+          <div class="miniStats">
+            <div class="miniKpi"><span class="muted">Buys</span><b>33</b></div>
+            <div class="miniKpi"><span class="muted">Sells</span><b>25</b></div>
+            <div class="miniKpi"><span class="muted">Top activo</span><b>TSLA</b></div>
+          </div>
+
+          <div class="miniTable">
+            <div class="thead2">
+              <div>Hora</div><div>Activo</div><div>Tipo</div><div>Cant.</div><div>Precio</div><div>Notional</div>
+            </div>
+            <div class="trow2">
+              <div class="muted">13:44</div><div>TSLA</div><div><span class="tag buy">BUY</span></div>
+              <div>2</div><div>$233.10</div><div>$466.20</div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </aside>
+  </section>
+</main>
+
 </body>
 </html>

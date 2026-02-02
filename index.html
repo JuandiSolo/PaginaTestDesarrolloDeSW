@@ -3,269 +3,98 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FFL · Liga</title>
-  <link rel="stylesheet" href="liga.css" />
+  <title>FFL · Crear Club</title>
+  <link rel="stylesheet" href="crear-club.css" />
 </head>
 
 <body>
-  <!-- Top bar -->
   <header class="topbar">
-    <div class="brand">
-      <div class="logo">FFL</div>
-      <div class="brandText">
-        <div class="brandTitle">Fantasy Finance League</div>
-        <div class="brandSub">Ligas · Mockup</div>
+    <div class="left">
+      <button class="iconBtn" aria-label="Volver">←</button>
+      <div class="brand">
+        <div class="logo">FFL</div>
+        <div class="txt">
+          <div class="title">Fantasy Finance League</div>
+          <div class="sub">Ligas · Crear club</div>
+        </div>
       </div>
     </div>
 
-    <div class="ticker">
-      <div class="pill">BTC-USD <span class="up">+1,120.40</span></div>
-      <div class="pill">ETH-USD <span class="down">-34.22</span></div>
-      <div class="pill">SOL-USD <span class="down">-2.11</span></div>
+    <div class="right">
+      <button class="iconBtn" aria-label="Chat">💬</button>
     </div>
-
-    <button class="btn ghost">Volver</button>
   </header>
 
-  <!-- Page -->
-  <main class="page">
-    <section class="shell">
-      <!-- LEFT: League card -->
-      <aside class="card leagueCard">
-        <div class="leagueHead">
-          <div class="leagueBadge" aria-hidden="true">🏆</div>
-          <div>
-            <h1 class="leagueName">ColombiaXx</h1>
-            <div class="leagueMeta">
-              <span class="chip">Pública</span>
-              <span class="chip">30/30</span>
-              <span class="chip subtle">Tag #V8C9YU</span>
-            </div>
+  <main class="wrap">
+    <section class="board" role="region" aria-label="Crear un nuevo club">
+      <h1 class="headline">CREATE A NEW CLUB</h1>
+
+      <!-- CLUB NAME -->
+      <div class="row center">
+        <div class="labelTop">CLUB NAME</div>
+        <div class="inputShell wide">
+          <input class="textInput" type="text" value="Liberators" aria-label="Nombre del club" />
+        </div>
+      </div>
+
+      <!-- BADGE + DESCRIPTION -->
+      <div class="grid2">
+        <div class="fieldCard">
+          <div class="labelTop">BADGE</div>
+
+          <div class="badgePicker">
+            <div class="badgeIcon" aria-hidden="true">☠️</div>
+            <button class="btn3d" type="button">BROWSE</button>
           </div>
         </div>
 
-        <div class="leagueStats">
-          <div class="stat">
-            <div class="statLabel">Equity total (liga)</div>
-            <div class="statValue">$1,847,476</div>
-          </div>
-          <div class="stat">
-            <div class="statLabel">Requisito</div>
-            <div class="statValue">55,000 pts</div>
-          </div>
-          <div class="stat">
-            <div class="statLabel">Ranking actual</div>
-            <div class="statValue">#144</div>
+        <div class="fieldCard">
+          <div class="labelTop">DESCRIPTION</div>
+
+          <div class="textareaShell">
+            <textarea class="textArea" rows="4" aria-label="Descripción">Hello :)</textarea>
           </div>
         </div>
+      </div>
 
-        <div class="leagueDesc">
-          <div class="descTitle">Descripción</div>
-          <p>
-            A POR EL TOP!!! · ser leal al club · ser activos · estrategia: value + paciencia.
-          </p>
-        </div>
+      <!-- TYPE + REQUIRED TROPHIES -->
+      <div class="grid2">
+        <div class="fieldCard">
+          <div class="labelTop">TYPE</div>
 
-        <div class="leagueActions">
-          <button class="btn primary">Invitar</button>
-          <button class="btn danger">Salir</button>
-        </div>
-
-        <div class="hint">
-          Tip: esta vista es para el creador/mod. “Miembros” muestra la lista completa.
-        </div>
-      </aside>
-
-      <!-- RIGHT: Tabs + content -->
-      <section class="card panel">
-        <div class="panelTop">
-          <div class="panelTitle">
-            <div class="titleRow">
-              <h2>CLUB</h2>
-              <span class="muted">Miembros <b>30/30</b></span>
-            </div>
-            <div class="search">
-              <input type="search" placeholder="Buscar miembro…" />
-              <button class="iconBtn" aria-label="Buscar">⌕</button>
+          <div class="selectorRow">
+            <div class="selectorValue">Open</div>
+            <div class="arrows">
+              <button class="arrowBtn" aria-label="Anterior">‹</button>
+              <button class="arrowBtn" aria-label="Siguiente">›</button>
             </div>
           </div>
 
-          <nav class="tabs" aria-label="Secciones de liga">
-            <a class="tab active" href="#">Miembros</a>
-            <a class="tab" href="#">Chat</a>
-            <a class="tab" href="#">Clasificación</a>
-            <a class="tab" href="#">Eventos</a>
-          </nav>
+          <div class="hint">Abierto = cualquiera puede unirse.</div>
         </div>
 
-        <!-- Members table/list -->
-        <div class="membersHeader">
-          <div class="col rank">#</div>
-          <div class="col name">Nombre</div>
-          <div class="col status">Estado</div>
-          <div class="col badge">Estilo</div>
-          <div class="col score">Return</div>
-          <div class="col action">Acción</div>
+        <div class="fieldCard">
+          <div class="labelTop">REQUIRED TROPHIES</div>
+
+          <div class="selectorRow">
+            <div class="selectorValue trophy">
+              <span class="cup" aria-hidden="true">🏆</span>
+              <span>0</span>
+            </div>
+            <div class="arrows">
+              <button class="arrowBtn" aria-label="Disminuir">‹</button>
+              <button class="arrowBtn" aria-label="Aumentar">›</button>
+            </div>
+          </div>
+
+          <div class="hint">Define el mínimo para entrar a tu club.</div>
         </div>
+      </div>
 
-        <div class="membersList">
-          <!-- Row -->
-          <article class="memberRow">
-            <div class="rank">1</div>
-            <div class="nameCell">
-              <div class="avatar" data-tone="1">M</div>
-              <div class="nameMeta">
-                <div class="nameLine">
-                  <span class="memberName">Matazano</span>
-                  <span class="role">Miembro</span>
-                </div>
-                <div class="sub">Perfil: macro · ETFs</div>
-              </div>
-            </div>
-            <div class="status">Último acceso: <b>hace 9 h</b></div>
-            <div class="badgeCell">
-              <span class="badge gold">Consistente</span>
-            </div>
-            <div class="scoreCell">
-              <span class="score up">+92.68%</span>
-              <span class="tiny muted">(2Y)</span>
-            </div>
-            <div class="action">
-              <button class="btn small">Ver</button>
-            </div>
-          </article>
-
-          <article class="memberRow">
-            <div class="rank">2</div>
-            <div class="nameCell">
-              <div class="avatar" data-tone="2">A</div>
-              <div class="nameMeta">
-                <div class="nameLine">
-                  <span class="memberName">Aquashiro</span>
-                  <span class="role">Miembro</span>
-                </div>
-                <div class="sub">Perfil: momentum</div>
-              </div>
-            </div>
-            <div class="status">Último acceso: <b>hace 6 h</b></div>
-            <div class="badgeCell">
-              <span class="badge cyan">Momentum</span>
-            </div>
-            <div class="scoreCell">
-              <span class="score up">+85.20%</span>
-              <span class="tiny muted">(2Y)</span>
-            </div>
-            <div class="action">
-              <button class="btn small">Ver</button>
-            </div>
-          </article>
-
-          <article class="memberRow">
-            <div class="rank">3</div>
-            <div class="nameCell">
-              <div class="avatar" data-tone="3">I</div>
-              <div class="nameMeta">
-                <div class="nameLine">
-                  <span class="memberName">ISRAFEL</span>
-                  <span class="role">Veterano</span>
-                </div>
-                <div class="sub">Perfil: value + paciencia</div>
-              </div>
-            </div>
-            <div class="status">Último acceso: <b>hace 8 h</b></div>
-            <div class="badgeCell">
-              <span class="badge green">Value</span>
-            </div>
-            <div class="scoreCell">
-              <span class="score up">+81.60%</span>
-              <span class="tiny muted">(2Y)</span>
-            </div>
-            <div class="action">
-              <button class="btn small">Ver</button>
-            </div>
-          </article>
-
-          <article class="memberRow">
-            <div class="rank">4</div>
-            <div class="nameCell">
-              <div class="avatar" data-tone="4">T</div>
-              <div class="nameMeta">
-                <div class="nameLine">
-                  <span class="memberName">Teex</span>
-                  <span class="role">Miembro</span>
-                </div>
-                <div class="sub">Perfil: tech swing</div>
-              </div>
-            </div>
-            <div class="status">Último acceso: <b>&lt;1 h</b></div>
-            <div class="badgeCell">
-              <span class="badge purple">Alta varianza</span>
-            </div>
-            <div class="scoreCell">
-              <span class="score up">+81.15%</span>
-              <span class="tiny muted">(2Y)</span>
-            </div>
-            <div class="action">
-              <button class="btn small">Ver</button>
-            </div>
-          </article>
-
-          <article class="memberRow">
-            <div class="rank">5</div>
-            <div class="nameCell">
-              <div class="avatar" data-tone="5">A</div>
-              <div class="nameMeta">
-                <div class="nameLine">
-                  <span class="memberName">Atomer</span>
-                  <span class="role mod">Vicepresidente</span>
-                </div>
-                <div class="sub">Perfil: riesgo controlado</div>
-              </div>
-            </div>
-            <div class="status">Último acceso: <b>hace 7 h</b></div>
-            <div class="badgeCell">
-              <span class="badge silver">Bajo drawdown</span>
-            </div>
-            <div class="scoreCell">
-              <span class="score up">+71.85%</span>
-              <span class="tiny muted">(2Y)</span>
-            </div>
-            <div class="action">
-              <button class="btn small">Ver</button>
-            </div>
-          </article>
-
-          <article class="memberRow">
-            <div class="rank">6</div>
-            <div class="nameCell">
-              <div class="avatar" data-tone="6">R</div>
-              <div class="nameMeta">
-                <div class="nameLine">
-                  <span class="memberName">RAGNAR</span>
-                  <span class="role">Miembro</span>
-                </div>
-                <div class="sub">Perfil: inactivo</div>
-              </div>
-            </div>
-            <div class="status warn">Último acceso: <b>+1 mes</b></div>
-            <div class="badgeCell">
-              <span class="badge dark">Inactivo</span>
-            </div>
-            <div class="scoreCell">
-              <span class="score down">-12.40%</span>
-              <span class="tiny muted">(2Y)</span>
-            </div>
-            <div class="action">
-              <button class="btn small ghost">Ver</button>
-            </div>
-          </article>
-        </div>
-
-        <footer class="panelFoot">
-          <div class="muted smallText">Basado en retorno (2Y) y consistencia · Demo UI</div>
-          <button class="btn ghost small">Ver todos</button>
-        </footer>
-      </section>
+      <!-- CREATE BUTTON -->
+      <div class="row center">
+        <button class="cta" type="button">CREATE</button>
+      </div>
     </section>
   </main>
 </body>
